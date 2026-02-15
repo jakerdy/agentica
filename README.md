@@ -19,3 +19,19 @@ cd MyProject
 code .
 
 ```
+
+
+## Команды
+
+Agentica предоставляет следующие команды для управления жизненным циклом разработки:
+
+- `/agentica.init      --lang <language_id> [\n] <user_input>` - Инициализация нового проекта с базовой структурой и шаблонами
+- `/agentica.create    --name <feature_id>  [\n] <user_input>` - Создание новой спецификации для реализации фичи или модуля
+- `/agentica.change    --name <change_id>   [\n] <user_input>` - Создание новой спецификации для внесения изменения в существующую реализацию
+- `/agentica.architect --name <arch_id>     [\n] <user_input>` - Создание новой архитектурной спецификации для описания архитектуры
+- `/agentica.iterate   --id <spec_id>       [\n] <user_input>` - Редактирование спецификации с помощью AI
+- `/agentica.tasks     --id <spec_id>       [\n] <user_input>` - Генерация списка задач для конечной реализации спецификации
+- `/agentica.implement --id <spec_id>       [\n] <user_input>` - Запуск выполнения таксков определённых в спецификации
+- `/agentica.validate  --id <spec_id>       [\n] <user_input>` - Семантическая и инструментальная валидация реализации спецификации
+- `/agentica.readme    --id <spec_id>       [\n] <user_input>` - Генерация пользовательской документации для реализованной спецификации
+- `/agentica.refactor [\n] <user_input>` - Рефакторинг существующей реализации с помощью AI без изменения ее публичного API

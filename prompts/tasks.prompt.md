@@ -441,7 +441,7 @@ reason: Will structure tasks.md sections. Each phase is a checkpoint with tests.
 
 ### Checkpoint
 
-- [ ] TSK-2-012: Проверить что все тесты фазы 2 проходят: `npm test -- tests/upload/validators/ tests/upload/parsers/`
+- [ ] TSK-2-012: Проверить что все тесты фазы 2 проходят: `bun test -- tests/upload/validators/ tests/upload/parsers/`
 - [ ] TSK-2-013: Git commit: "feat(upload): implement FileValidator and CSVParser with full test coverage"
 ```
 
@@ -574,7 +574,7 @@ graph TD
 
 ### Phase Checkpoint
 
-- [ ] TSK-2-012: Проверить что все тесты фазы 2 проходят: `npm test -- tests/upload/validators/ tests/upload/parsers/`
+- [ ] TSK-2-012: Проверить что все тесты фазы 2 проходят: `bun test -- tests/upload/validators/ tests/upload/parsers/`
 - [ ] TSK-2-013: Git commit: "feat(upload): implement FileValidator and CSVParser with full test coverage"
 ```
 
@@ -999,9 +999,9 @@ Phase 3: Business Logic (10 задач + коммит)
 - Integration-тесты: <M> scenarios проходят (если применимо)
 
 ✅ **Код валиден:**
-- `npm run typecheck` — ✅ без ошибок
-- `npm run lint` — ✅ без ошибок
-- `npm test` — ✅ все тесты проходят
+- `bun run typecheck` — ✅ без ошибок
+- `bun run lint` — ✅ без ошибок
+- `bun test` — ✅ все тесты проходят
 
 ✅ **Git:**
 - Коммит: <описание коммита>

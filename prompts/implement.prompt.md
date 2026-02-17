@@ -162,7 +162,7 @@ Checkpoint: <Описание критерия завершения фазы>
 **3. Запусти тесты фазы:**
 ```bash
 # Согласно инструкциям из tasks.md для текущей фазы
-npm test -- tests/upload/validators/
+bun test -- tests/upload/validators/
 ```
 
 Если тесты **не проходят**:
@@ -173,8 +173,8 @@ npm test -- tests/upload/validators/
 
 **4. Запусти линтер и форматтер:**
 ```bash
-npm run lint
-npm run format
+bun run lint
+bun run format
 ```
 
 Исправь все ошибки линтера.
@@ -307,7 +307,7 @@ git commit -m "feat(FT-XXXX): complete implementation"
 ### Проверки качества
 - [x] Линтер: OK
 - [x] Форматтер: OK
-- [x] Type-check: OK (если TS)
+- [x] typecheck: OK (если TS)
 - [x] Build: OK
 
 ## 📊 Статистика

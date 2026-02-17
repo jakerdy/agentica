@@ -9,7 +9,7 @@
 
 ```bash
 # Установка глобально
-npm install -g @jakerdy/agentica
+bun install -g @jakerdy/agentica
 
 # Инициализация (работает и в пустой папке, и в существующем проекте)
 agentica init --name MyProject --stack typescript/cli

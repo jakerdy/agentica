@@ -711,10 +711,10 @@ class ErrorHandler {
 
 **Цель:** Убедиться, что все работает корректно.
 
-- [ ] TSK-0049: Прогнать linter (`npm run lint`) — исправить ошибки
-- [ ] TSK-0050: Прогнать formatter (`npm run format`) — отформатировать код
-- [ ] TSK-0051: Прогнать все тесты (`npm run test`) — проверить 100% прохождение
-- [ ] TSK-0052: Прогнать type checker (`npm run type-check`) — проверить типы
+- [ ] TSK-0049: Прогнать linter (`bun run lint`) — исправить ошибки
+- [ ] TSK-0050: Прогнать formatter (`bun run format`) — отформатировать код
+- [ ] TSK-0051: Прогнать все тесты (`bun run test`) — проверить 100% прохождение
+- [ ] TSK-0052: Прогнать type checker (`bun run typecheck`) — проверить типы
 - [ ] TSK-0053: Создать PR в master с описанием изменений
 - [ ] TSK-0054: Code review — запросить ревью у команды
 ````

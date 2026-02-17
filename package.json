@@ -1,13 +1,55 @@
 {
   "name": "@jakerdy/agentica",
+  "version": "0.1.0",
+  "description": "Spec-driven framework for agent coding with developer-first approach",
+  "keywords": [
+    "ai",
+    "agents",
+    "llm",
+    "spec-driven",
+    "code-generation",
+    "architecture",
+    "cli",
+    "developer-tools"
+  ],
+  "author": "Jak Erdy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakerdy/agentica.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jakerdy/agentica/issues"
+  },
+  "homepage": "https://github.com/jakerdy/agentica#readme",
   "module": "src/index.ts",
-  "main": "dist/index.js",
+  "main": "dist/cli.js",
   "type": "module",
-  "private": true,
+  "bin": {
+    "agentica": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "prompts",
+    "templates",
+    "stacks",
+    "globals",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun run build.ts",
+    "prepublishOnly": "bun run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
+    "typescript": "^5",
     "@types/bun": "latest"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^14.0.3"
   }
 }

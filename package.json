@@ -14,20 +14,12 @@
   ],
   "author": "Jak Erdy",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jakerdy/agentica.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jakerdy/agentica/issues"
-  },
+  "repository": "git+https://github.com/jakerdy/agentica.git",
+  "bugs": "https://github.com/jakerdy/agentica/issues",
   "homepage": "https://github.com/jakerdy/agentica#readme",
   "module": "src/index.ts",
   "main": "dist/cli.js",
   "type": "module",
-  "bin": {
-    "agentica": "./dist/cli.js"
-  },
   "files": [
     "dist",
     "prompts",

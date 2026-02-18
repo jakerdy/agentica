@@ -12,11 +12,37 @@
 bun install -g @jakerdy/agentica
 
 # Инициализация (работает и в пустой папке, и в существующем проекте)
-agentica init --name MyProject --stack typescript/cli
+agentica init typescript/cli MyProject
 
 # Открытие в VSCode
 cd MyProject
 code .
+```
+
+## CLI
+
+Agentica CLI поддерживает два формата запуска `init`:
+- **Позиционный (основной):** `agentica init <stack> [targetPath]`
+- **Через опции (совместимость):** `agentica init --stack <type> [--out <path>]`
+
+### Основные команды
+
+```bash
+# Инициализация Agentica в текущей папке
+agentica init typescript/cli
+
+# Инициализация с созданием новой папки проекта
+agentica init typescript/spa MyProject
+
+# То же через опции (режим совместимости)
+agentica init --stack typescript/spa --out MyProject
+
+# Показать доступные шаблоны стеков
+agentica stacks
+
+# Справка по CLI
+agentica --help
+agentica init --help
 ```
 
 ## Мотивация

@@ -18,3 +18,9 @@ export interface IVSCodeSettings
   "chat.agentSkillsLocations"?: Record<string, boolean>;
   [key: string]: unknown;
 }
+
+export interface IVSCodeExtensions
+{
+  recommendations?: string[];
+  [key: string]: unknown;
+}

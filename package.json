@@ -1,6 +1,6 @@
 {
   "name": "@jakerdy/agentica",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "Spec-driven framework for agent coding with developer-first approach",
   "keywords": [
     "ai",

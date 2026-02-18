@@ -1,31 +1,55 @@
-# Changelog
+# Журнал изменений
 
-All notable changes to this project will be documented in this file.
+Все значимые изменения в этом проекте будут документироваться в этом файле.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] - 2026-02-17
+## [0.0.2]
 
-### Added
-- Initial release
-- `agentica init` command for project initialization
-- Support for TypeScript stacks: cli, lib, monorepo, server, spa
-- Support for Python stacks: cli, gui, lib, monorepo
-- Stack templates with product.md, structure.md, tech.md
-- Agent workflow prompts (init, create, architect, reverse, change, tasks, implement, validate, readme, refactor)
-- Specification templates (architecture, change, feature)
-- AGENTS.md composition from globals (lang-specific, anti-spaghetti, use-agentica)
-- VSCode settings.json integration for prompt files
-- Automatic project structure creation
-- Colored CLI output with chalk
-- Commander.js-based CLI interface
+### Добавлено
+- Бейджи в заголовке README (версия, лицензия, build)
+- Раздел `Prerequisites` в README:
+	- VSCode
+	- GitHub Copilot
+	- Bun / Node.js для CLI
+	- Context7 (опционально)
+- Новый скилл `frontend-design` в `.agentica/skills` и шаблонах инициализации
 
-### Features
-- Create new project with `--name` flag
-- Initialize in current directory
-- Automatic backup of existing AGENTS.md
-- Stack validation and helpful error messages
-- Build system with Bun
+### Изменено
+- Обновлён CLI API и упрощён интерфейс запуска команд
+- Улучшен `init`-процесс: команда `init` теперь обновляет `.vscode/extensions.json` и добавляет рекомендацию `Upstash.context7-mcp`
+- Подредактирован `init` prompt для более качественного процесса инициализации
 
+### Исправлено
+- Сборка переведена на Node-совместимый сценарий (не только Bun)
+- Унифицировано имя инструмента `ask_questions` в промптах
+
+### Удалено
+- Удалён `PUBLISHING.md` как избыточный файл
+
+## [0.0.1] - 2026-02-17
+
+### Добавлено
+- Первый релиз
+- Команда `agentica init` для инициализации проекта
+- Поддержка TypeScript-стеков: cli, lib, monorepo, server, spa
+- Поддержка Python-стеков: cli, gui, lib, monorepo
+- Шаблоны стеков с файлами product.md, structure.md, tech.md
+- Промпты workflow агента (init, create, architect, reverse, change, tasks, implement, validate, readme, refactor)
+- Шаблоны спецификаций (architecture, change, feature)
+- Сборка AGENTS.md из globals (lang-specific, anti-spaghetti, use-agentica)
+- Интеграция settings.json VSCode для файлов промптов
+- Автоматическое создание структуры проекта
+- Цветной вывод CLI с помощью chalk
+- CLI-интерфейс на базе Commander.js
+
+### Возможности
+- Создание нового проекта с флагом `--name`
+- Инициализация в текущей директории
+- Автоматическое резервное копирование существующего AGENTS.md
+- Валидация стеков и понятные сообщения об ошибках
+- Система сборки на Bun
+
+[Unreleased]: https://github.com/jakerdy/agentica/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/jakerdy/agentica/releases/tag/v0.1.0

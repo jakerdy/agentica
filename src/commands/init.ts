@@ -3,7 +3,7 @@ import { writeFileSync } from "fs";
 import chalk from "chalk";
 import type { IInitOptions, IStackDefinition } from "../types";
 import { ensureDir, copyDir, copyFile, fileExists } from "../utils/file_system";
-import { updateVSCodeSettings } from "../utils/vscode_config";
+import { updateVSCodeExtensions, updateVSCodeSettings } from "../utils/vscode_config";
 import { composeAgentsMd } from "../utils/agents_composer";
 
 //---------------------- Constants -----------------------//
@@ -172,7 +172,9 @@ class InitProcessor
     try
     {
       updateVSCodeSettings(this.targetDir);
+      updateVSCodeExtensions(this.targetDir);
       console.log(chalk.green(`✓ Обновлён .vscode/settings.json`));
+      console.log(chalk.green(`✓ Обновлён .vscode/extensions.json`));
     } catch (error)
     {
       console.warn(chalk.yellow(`⚠ Предупреждение: не удалось обновить настройки VSCode: ${error}`));

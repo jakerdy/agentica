@@ -1,6 +1,6 @@
 {
   "name": "@jakerdy/agentica",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Spec-driven framework for agent coding with developer-first approach",
   "keywords": [
     "ai",
@@ -39,7 +39,8 @@
   ],
   "scripts": {
     "build": "bun run build.ts",
-    "prepublishOnly": "bun run build"
+    "prepublishOnly": "bun run build",
+    "typecheck": "tsc --noEmit"
   },
   "engines": {
     "node": ">=18.0.0"

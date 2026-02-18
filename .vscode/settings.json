@@ -2,5 +2,8 @@
   "chat.promptFilesLocations": {
     ".github/prompts": true,
     "prompts": true
+  },
+  "chat.agentSkillsLocations": {
+    "skills": true
   }
 }

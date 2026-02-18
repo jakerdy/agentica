@@ -11,6 +11,7 @@ import { composeAgentsMd } from "../utils/agents_composer";
 const AGENTICA_DIR = ".agentica";
 const PROMPTS_DIR = "prompts";
 const TEMPLATES_DIR = "templates";
+const SKILLS_DIR = "skills";
 const STACKS_DIR = "stacks";
 const STATUS_FILE = "status.md";
 const EXIT_CODE_FAILURE = 1;
@@ -70,6 +71,7 @@ class InitProcessor
     this.createAgenticaDirectories();
     this.copyPrompts();
     this.copyTemplates();
+    this.copySkills();
     this.copyStackTemplateFiles();
     this.createStatusFile();
     this.composeAgentsFile();
@@ -129,6 +131,15 @@ class InitProcessor
     console.log(chalk.green(`✓ Скопирована templates/`));
   }
 
+  private copySkills(): void
+  {
+    const skillsSource = join(this.repoRoot, SKILLS_DIR);
+    const skillsDestination = join(this.agenticaDir, SKILLS_DIR);
+
+    copyDir(skillsSource, skillsDestination);
+    console.log(chalk.green(`✓ Скопирована skills/`));
+  }
+
   private copyStackTemplateFiles(): void
   {
     for (const file of STACK_FILES)
@@ -179,8 +190,12 @@ class InitProcessor
     }
 
     console.log(chalk.white("  2. Открой проект в VSCode: code ."));
-    console.log(chalk.white("  3. Начни с промпта /agentica.init d чате Copilot.\n\tОпиши свой проект, и стек технологий, Agentica подстроится под твои нужды!"));
-    console.log();
+    console.log(chalk.white(`  3. Начни с промпта /agentica.init d чате Copilot:
+    - Опиши свой проект, и стек технологий (после команды)
+    - Agentica подстроится под твои нужды
+    - А дальще можно запускать /agentica.create или /agentica.change
+    - И обязательно прочитай и донастрой AGENTS.md
+    `));
   }
 }
 

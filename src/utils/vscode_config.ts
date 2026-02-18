@@ -8,6 +8,7 @@ import type { IVSCodeSettings } from "../types";
 const VSCODE_DIR = ".vscode";
 const SETTINGS_FILE = "settings.json";
 const AGENTICA_PROMPTS_PATH = ".agentica/prompts";
+const AGENTICA_SKILLS_PATH = ".agentica/skills";
 
 export function updateVSCodeSettings(target_dir: string): void
 {
@@ -31,13 +32,12 @@ export function updateVSCodeSettings(target_dir: string): void
   }
 
   // Ensure chat.promptFilesLocations exists as an object
-  if (!settings["chat.promptFilesLocations"])
-  {
-    settings["chat.promptFilesLocations"] = {};
-  }
-
-  // Add .agentica/prompts location
+  settings["chat.promptFilesLocations"] ??= {};
   settings["chat.promptFilesLocations"][AGENTICA_PROMPTS_PATH] = true;
+
+  // Ensure chat.agentSkillsLocations exists as an object
+  settings["chat.agentSkillsLocations"] ??= {};
+  settings["chat.agentSkillsLocations"][AGENTICA_SKILLS_PATH] = true;
 
   // Write back with formatting
   const formatted_json = JSON.stringify(settings, null, 2);

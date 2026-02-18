@@ -15,5 +15,6 @@ export interface IStackDefinition
 export interface IVSCodeSettings
 {
   "chat.promptFilesLocations"?: Record<string, boolean>;
+  "chat.agentSkillsLocations"?: Record<string, boolean>;
   [key: string]: unknown;
 }

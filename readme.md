@@ -19,6 +19,10 @@ cd MyProject
 code .
 ```
 
+После `init` Agentica автоматически:
+- копирует в проект `.agentica/prompts`, `.agentica/templates` и `.agentica/skills`;
+- обновляет `.vscode/settings.json`, добавляя пути в `chat.promptFilesLocations` и `chat.agentSkillsLocations`.
+
 ## CLI
 
 Agentica CLI поддерживает два формата запуска `init`:
@@ -113,6 +117,7 @@ Agentica строго разделяет уровни ответственнос
 ├── .agentica/                  # GLOBAL SCOPE (Конфигурация и общие знания)
 │   ├── templates/              # Шаблоны (feature, arch, change)
 │   ├── prompts/                # Промпты (init, create, implement...)
+│   ├── skills/                 # Skills для Copilot Agent (например frontend-design)
 │   ├── product.md              # Глобальный продукт
 │   ├── structure.md            # Структура репозитория
 │   ├── tech.md                 # Глобальный стек и стандарты

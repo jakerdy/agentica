@@ -1,6 +1,6 @@
 {
   "name": "@jakerdy/agentica",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Spec-driven framework for agent coding with developer-first approach",
   "keywords": [
     "ai",
@@ -14,7 +14,10 @@
   ],
   "author": "Jak Erdy",
   "license": "MIT",
-  "repository": "git+https://github.com/jakerdy/agentica.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakerdy/agentica.git"
+  },
   "bugs": "https://github.com/jakerdy/agentica/issues",
   "homepage": "https://github.com/jakerdy/agentica#readme",
   "module": "src/index.ts",

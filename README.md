@@ -13,16 +13,16 @@
 
 ## Prerequisites
 
-- VSCode 1.109.0+
+- [VSCode](https://code.visualstudio.com/) 1.109.0+
 - GitHub Copilot
-- Bun 1.3+ / Node.js 18+ (для запуска CLI)
+- [Bun](https://bun.com/docs/installation) 1.3+ или [Node.js](https://nodejs.org/en/download) 18+ (для запуска CLI)
 - Context7 (`Upstash.context7-mcp`) — опционально
 
 ## Quick Start
 
 ```bash
 # Запускаем без установки
-npx @jakerdy/agentica init typescript/cli MyProject
+bunx @jakerdy/agentica init typescript/cli MyProject
 
 # Открываем в VSCode
 cd MyProject && code .

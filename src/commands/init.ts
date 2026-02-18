@@ -22,6 +22,7 @@ const REQUIRED_SUBDIRS = [
   "architecture",
   "changes",
   "features",
+  "release",
 ];
 
 const STACK_FILES = ["product.md", "structure.md", "tech.md"];
@@ -192,10 +193,10 @@ class InitProcessor
     }
 
     console.log(chalk.white("  2. Открой проект в VSCode: code ."));
-    console.log(chalk.white(`  3. Начни с промпта /agentica.init d чате Copilot:
+    console.log(chalk.white(`  3. Начни с промпта /agentica.init в чате Copilot:
     - Опиши свой проект, и стек технологий (после команды)
     - Agentica подстроится под твои нужды
-    - А дальще можно запускать /agentica.create или /agentica.change
+    - А дальше можно запускать /agentica.create, /agentica.change, /agentica.commit или /agentica.release
     - И обязательно прочитай и донастрой AGENTS.md
     `));
   }

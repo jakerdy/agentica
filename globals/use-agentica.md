@@ -13,8 +13,8 @@
 **Корневой уровень** (`.agentica/` в корне проекта):
 ```
 .agentica/
-├── prompts/          # Воркфлоу агентов (init, create, implement, validate)
-├── templates/        # Шаблоны спек (feature, change, architecture)
+├── prompts/          # Воркфлоу агентов (init, create, tasks, implement, validate, commit, release)
+├── templates/        # Шаблоны спек (feature, change, architecture, release)
 ├── product.md        # Глобальное продуктовое видение
 ├── structure.md      # Структура и организация репозитория
 ├── tech.md           # Глобальный тех-стек и стандарты
@@ -27,6 +27,7 @@ packages/my-package/.agentica/
 ├── features/         # Спеки FT-XXXX (новая функциональность)
 ├── changes/          # Спеки CH-XXXX (изменения существующего кода)
 ├── architecture/     # Спеки AR-XXXX (архитектурные решения и паттерны)
+├── release/          # Спеки REL-XXXX (подготовка и выпуск релизов)
 ├── product.md        # Назначение и домен пакета
 ├── structure.md      # Файловая структура пакета
 ├── tech.md           # Стек и паттерны конкретного пакета
@@ -86,7 +87,7 @@ IDE автоматически предоставляет доступ к фак
 - Консистентность > новизна
 
 **4. Следуй процессу**
-Каждый воркфлоу Agentica имеет определённые шаги (init → create → tasks → implement → validate). Если пользователь просит сделать что-то масштабное:
+Каждый воркфлоу Agentica имеет определённые шаги (init → create/change → tasks → implement → validate → commit → release). Если пользователь просит сделать что-то масштабное:
 - Проверь, существует ли связанная спека
 - Если спеки нет - рекомендуй сначала использовать `/agentica.create`
 - Не пиши большие фичи "фристайлом" без спеки
@@ -101,6 +102,8 @@ IDE автоматически предоставляет доступ к фак
 2. Распланируй задачи: `/agentica.tasks --id FT-XXXX`
 3. Реализуй: `/agentica.implement --id FT-XXXX`
 4. Валидируй: `/agentica.validate --id FT-XXXX`
+5. Подготовь коммит: `/agentica.commit`
+6. Подготовь релиз: `/agentica.release --type patch|minor|major`
 
 Это обеспечит:
 - Правильное планирование архитектуры

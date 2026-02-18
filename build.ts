@@ -7,9 +7,9 @@ console.log("🔨 Building Agentica CLI...\n");
 const result = await Bun.build({
   entrypoints: ["./src/cli.ts"],
   outdir: "./dist",
-  target: "bun",
-  minify: false,
-  sourcemap: "external",
+  target: "node",
+  minify: true,
+  sourcemap: "none",
 });
 
 if (!result.success)

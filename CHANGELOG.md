@@ -5,7 +5,24 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.2]
+## [0.0.4] - 2026-02-18
+
+### Изменено
+- Обновлены CLI- и workflow-промпты для `commit` и `release`
+
+### Исправлено
+- Исправлены ссылки в разделе `Prerequisites` в README
+- Обновлён version badge в README до актуального релиза
+
+## [0.0.3] - 2026-02-18
+
+### Добавлено
+- Workflow-промпты `commit` и `release`
+
+### Изменено
+- Усилена проверка commit workflow на нежелательные/неуместные формулировки в changes
+
+## [0.0.2] - 2026-02-18
 
 ### Добавлено
 - Бейджи в заголовке README (версия, лицензия, build)
@@ -50,6 +67,3 @@
 - Автоматическое резервное копирование существующего AGENTS.md
 - Валидация стеков и понятные сообщения об ошибках
 - Система сборки на Bun
-
-[Unreleased]: https://github.com/jakerdy/agentica/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/jakerdy/agentica/releases/tag/v0.1.0

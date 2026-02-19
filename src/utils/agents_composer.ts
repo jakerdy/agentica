@@ -14,13 +14,11 @@ const USE_AGENTICA_FILE = "use-agentica.md";
 
 export function composeAgentsMd(
   repo_root: string,
-  target_dir: string,
   lang: string
 ): void
 {
-  const agentica_dir = join(target_dir, ".agentica");
-  const agents_path = join(agentica_dir, AGENTS_FILE);
-  const agents_old_path = join(agentica_dir, AGENTS_OLD_FILE);
+  const agents_path = join(repo_root, AGENTS_FILE);
+  const agents_old_path = join(repo_root, AGENTS_OLD_FILE);
 
   // Backup existing AGENTS.md if present
   if (fileExists(agents_path))

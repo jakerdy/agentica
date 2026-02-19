@@ -5,6 +5,15 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.8] - 2026-02-19
+
+### Изменено
+- Сборка CLI переведена в режим внешних зависимостей (`packages: "external"`) вместо полного бандлинга `node_modules`
+- Синхронизированы версии пакета и CLI до `0.0.8`
+
+### Docs / Build
+- Обновлён version badge в README до `0.0.8`
+
 ## [0.0.7] - 2026-02-19
 
 ### Добавлено

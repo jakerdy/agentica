@@ -23,6 +23,7 @@
   "module": "src/index.ts",
   "main": "dist/cli.js",
   "type": "module",
+  "bin": "dist/cli.js",
   "files": [
     "dist",
     "prompts",

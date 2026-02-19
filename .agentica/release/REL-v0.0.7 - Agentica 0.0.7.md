@@ -11,20 +11,20 @@
 ## Чеклист предрелизных работ
 
 - [x] Активная ветка: `main` или `master` (`main`)
-- [ ] Все изменения закоммичены (`git status` чистый) — **FAIL (в процессе подготовки release-коммита)**
+- [ ] Все изменения закоммичены (`git status` чистый) — **IN PROGRESS** (финальный release-коммит выполняется после проверки)
 - [x] Версии в манифестах синхронизированы с тегом релиза (`package.json: 0.0.7`)
-- [ ] Форматирование проходит успешно — **N/A** (в проекте нет отдельной команды format)
-- [ ] Линт проходит успешно — **N/A** (в проекте нет отдельной команды lint)
+- [x] Форматирование проходит успешно (`bun run format`)
+- [x] Линт проходит успешно (`npm run lint`)
 - [x] Компиляция/типизация проходит успешно (`npm run typecheck`)
 - [x] Сборка проходит успешно (`npm run build`)
 - [x] Dry-run публикации прошёл успешно (`npm publish --dry-run`)
-- [ ] Публикационное окружение и credentials проверены — **FAIL** (`NPM_TOKEN`/`NODE_AUTH_TOKEN` не обнаружены)
+- [ ] Публикационное окружение и credentials проверены — **FAIL** (`NPM_TOKEN`/`NODE_AUTH_TOKEN` не обнаружены в окружении)
 
 ## Черновик Changelog для текущей версии
 
 ### Features
 
-- Нет feature-коммитов в диапазоне релиза.
+- Улучшена работа с конфигами VSCode: добавлен безопасный парсинг JSONC для `.vscode/settings.json` и `.vscode/extensions.json`.
 
 ### Fixes
 
@@ -32,7 +32,7 @@
 
 ### Refactor / Chore
 
-- Нет refactor/chore-коммитов в диапазоне релиза.
+- В `package.json` добавлены команды `lint` и `format` для предрелизного quality gate.
 
 ### Docs / Tests / Build
 
@@ -64,7 +64,7 @@
 ## Блокеры и риски
 
 - [x] Блокер: Публикационные credentials не обнаружены (`NPM_TOKEN`/`NODE_AUTH_TOKEN`).
-- [x] Блокер: Рабочее дерево не чистое до release-коммита (ожидаемо в процессе подготовки).
+- [ ] Блокер: Рабочее дерево не чистое до release-коммита (будет закрыто финальным commit).
 - [ ] Риск: Критичных рисков по сборке/типизации не выявлено.
 
 ## Команды для публикации (не запускать до устранения блокеров)
@@ -76,11 +76,11 @@ npm run build
 npm publish --dry-run
 
 # Подготовка релиза
-git add package.json README.md CHANGELOG.md .agentica/release/REL-v0.0.7 - Agentica 0.0.7.md
-git commit -m "chore(release): prepare v0.0.7"
-git tag v0.0.7
+git add package.json src/utils/vscode_config.ts bun.lock CHANGELOG.md .agentica/release/REL-v0.0.7 - Agentica 0.0.7.md
+git commit -m "chore(release): finalize v0.0.7"
+git tag -f v0.0.7
 git push origin main
-git push origin v0.0.7
+git push origin -f v0.0.7
 
 # Публикация (только после настройки credentials)
 npm publish

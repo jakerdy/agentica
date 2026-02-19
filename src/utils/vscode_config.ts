@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
+import { parse, printParseErrorCode, type ParseError } from "jsonc-parser";
 import { ensureDir, fileExists } from "./file_system";
 import type { IVSCodeExtensions, IVSCodeSettings } from "../types";
 
@@ -11,6 +12,32 @@ const EXTENSIONS_FILE = "extensions.json";
 const AGENTICA_PROMPTS_PATH = ".agentica/prompts";
 const AGENTICA_SKILLS_PATH = ".agentica/skills";
 const CONTEXT7_EXTENSION = "Upstash.context7-mcp";
+
+function parseJsoncObject<T extends Record<string, unknown>>(content: string, filePath: string): T
+{
+  const parseErrors: ParseError[] = [];
+  const parsed = parse(content, parseErrors, {
+    allowTrailingComma: true,
+    disallowComments: false,
+  });
+
+  if (parseErrors.length > 0)
+  {
+    const [firstError] = parseErrors;
+    const errorCode = firstError
+      ? printParseErrorCode(firstError.error)
+      : "Unknown";
+
+    throw new Error(`Invalid JSONC in ${filePath}: ${errorCode}`);
+  }
+
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed))
+  {
+    throw new Error(`Invalid JSONC in ${filePath}: root value must be an object`);
+  }
+
+  return parsed as T;
+}
 
 export function updateVSCodeSettings(target_dir: string): void
 {
@@ -26,10 +53,10 @@ export function updateVSCodeSettings(target_dir: string): void
     const content = readFileSync(settings_path, "utf-8");
     try
     {
-      settings = JSON.parse(content) as IVSCodeSettings;
+      settings = parseJsoncObject<IVSCodeSettings>(content, settings_path);
     } catch (error)
     {
-      throw new Error(`Invalid JSON in ${settings_path}: ${error}`);
+      throw new Error(String(error));
     }
   }
 
@@ -60,10 +87,10 @@ export function updateVSCodeExtensions(target_dir: string): void
     const content = readFileSync(extensions_path, "utf-8");
     try
     {
-      extensions = JSON.parse(content) as IVSCodeExtensions;
+      extensions = parseJsoncObject<IVSCodeExtensions>(content, extensions_path);
     } catch (error)
     {
-      throw new Error(`Invalid JSON in ${extensions_path}: ${error}`);
+      throw new Error(String(error));
     }
   }
 

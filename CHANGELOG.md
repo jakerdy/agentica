@@ -7,6 +7,12 @@
 
 ## [0.0.7] - 2026-02-19
 
+### Добавлено
+- Поддержка JSONC (`comments` и trailing commas) при чтении `.vscode/settings.json` и `.vscode/extensions.json` через `jsonc-parser`
+
+### Изменено
+- Добавлены команды quality gate в `package.json`: `lint` (`biome check --write`) и `format` (`biome format --write`)
+
 ### Исправлено
 - Исправлен путь размещения `AGENTS.md`: теперь файл создаётся в корне целевой директории `init`
 

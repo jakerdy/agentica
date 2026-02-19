@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name("agentica")
   .description("Фреймворк для агентной разработки по спецификациям")
-  .version("0.1.0");
+  .version("0.0.8");
 
 program
   .command("init")

@@ -5,6 +5,19 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.6] - 2026-02-19
+
+### Изменено
+- Обновлён workflow промпта релиза: пересобрана очередность шагов Фазы 7 для помощи в публикации
+
+### Исправлено
+- Восстановлен CLI binding
+- Нормализовано поле `bin` в `package.json` до объектного формата для корректного `npm publish`
+
+### Документация
+- Обновлён version badge в README до `0.0.6`
+- Добавлен release-документ `.agentica/release/REL-v0.0.6 - Agentica 0.0.6.md`
+
 ## [0.0.5] - 2026-02-18
 
 ### Исправлено

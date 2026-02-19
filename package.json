@@ -1,6 +1,6 @@
 {
   "name": "@jakerdy/agentica",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Spec-driven framework for agent coding with developer-first approach",
   "keywords": [
     "ai",
@@ -23,7 +23,9 @@
   "module": "src/index.ts",
   "main": "dist/cli.js",
   "type": "module",
-  "bin": "dist/cli.js",
+  "bin": {
+    "agentica": "dist/cli.js"
+  },
   "files": [
     "dist",
     "prompts",

@@ -192,13 +192,17 @@ class InitProcessor
       console.log(chalk.white(`  1. cd ${this.options.name}`));
     }
 
-    console.log(chalk.white("  2. Открой проект в VSCode: code ."));
-    console.log(chalk.white(`  3. Начни с промпта /agentica.init в чате Copilot:
+    console.log(chalk.white("  1. Открой проект в VSCode: code ."));
+    console.log(chalk.white(`  2. Начни с промпта /agentica.init в чате Copilot:
     - Опиши свой проект, и стек технологий (после команды)
     - Agentica подстроится под твои нужды
-    - А дальше можно запускать /agentica.create, /agentica.change, /agentica.commit или /agentica.release
     - И обязательно прочитай и донастрой AGENTS.md
     `));
+    console.log(chalk.white("  3. Создавай новый функционал с помощью /agentica.create"));
+    console.log(chalk.white("  4. Вноси крупные изменения в существующий код с помощью /agentica.change"));
+    console.log(chalk.white("  5. Изучай и описывай кодовую базу с помощью /agentica.reverse"));
+    console.log(chalk.white("  6. Создавай крутые комиты через /agentica.commit"));
+    console.log(chalk.yellow("  🤖 Agentica поможет тебе написать хороший, качественный код!"));
   }
 }
 

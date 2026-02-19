@@ -5,6 +5,16 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.7] - 2026-02-19
+
+### Исправлено
+- Исправлен путь размещения `AGENTS.md`: теперь файл создаётся в корне целевой директории `init`
+
+### Документация
+- Уточнён prompt инициализации для корректного создания полной структуры в корне monorepo
+- Обновлён version badge в README до `0.0.7`
+- Добавлен release-документ `.agentica/release/REL-v0.0.7 - Agentica 0.0.7.md`
+
 ## [0.0.6] - 2026-02-19
 
 ### Изменено

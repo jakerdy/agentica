@@ -40,7 +40,7 @@ $ARGUMENTS
 | Тип проекта | Локация (Scope) | Состав артефактов |
 | :--- | :--- | :--- |
 | **Single-project** | Корень (`./.agentica/`) | **[Context]** + **[Config]** + **[Specs]** |
-| **Monorepo** | Корень репо (`./.agentica/`) | **[Context]** + **[Config]**. **ЗАПРЕЩЕНО** создавать [Specs] здесь. |
+| **Monorepo** | Корень репо (`./.agentica/`) | **[Context]** + **[Config]** + **[Specs]** |
 | **Monorepo** | Пакет (`./packages/X/.agentica/`) | **[Context]** + **[Specs]**. |
 
 ## 2. Диагностика и Выбор сценария

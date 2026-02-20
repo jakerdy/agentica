@@ -1,6 +1,6 @@
 {
   "name": "@jakerdy/agentica",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Spec-driven framework for agent coding with developer-first approach",
   "keywords": [
     "ai",
@@ -12,7 +12,7 @@
     "cli",
     "developer-tools"
   ],
-  "author": "Jak Erdy",
+  "author": "JakErdy",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,10 +27,12 @@
     "agentica": "dist/cli.js"
   },
   "files": [
+    "assets",
     "dist",
     "prompts",
     "templates",
     "stacks",
+    "skills",
     "globals",
     "README.md",
     "LICENSE"

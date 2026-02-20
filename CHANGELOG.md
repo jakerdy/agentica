@@ -5,6 +5,14 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.10] - 2026-02-20
+
+### Исправлено
+- Исправлено попадание обязательных файлов в публикационный пакет
+
+### Docs / Build
+- Обновлён version badge в README до `0.0.10`
+
 ## [0.0.9] - 2026-02-20
 
 ### Исправлено

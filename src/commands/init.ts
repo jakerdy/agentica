@@ -5,6 +5,7 @@ import type { IInitOptions, IStackDefinition } from "../types";
 import { ensureDir, copyDir, copyFile, fileExists } from "../utils/file_system";
 import { updateVSCodeExtensions, updateVSCodeSettings } from "../utils/vscode_config";
 import { composeAgentsMd } from "../utils/agents_composer";
+import { findRepoRoot } from "../utils/repo_root";
 
 //---------------------- Constants -----------------------//
 
@@ -57,7 +58,7 @@ class InitProcessor
     private readonly stack: IStackDefinition,
   )
   {
-    this.repoRoot = getRepoRoot();
+    this.repoRoot = findRepoRoot(import.meta.url);
     this.targetDir = this.options.name
       ? resolve(process.cwd(), this.options.name)
       : process.cwd();
@@ -231,13 +232,6 @@ function parseStack(stack_string: string): IStackDefinition | null
   }
 
   return { lang, type };
-}
-
-function getRepoRoot(): string
-{
-  // In production, this will be the installed package location
-  // For development, use current directory structure
-  return resolve(__dirname, "../..");
 }
 
 function createStatusContent(stack: IStackDefinition): string

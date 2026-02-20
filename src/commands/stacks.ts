@@ -1,6 +1,7 @@
 import { readdirSync, statSync } from "fs";
-import { join, resolve } from "path";
+import { join } from "path";
 import chalk from "chalk";
+import { findRepoRoot } from "../utils/repo_root";
 
 //---------------------- Constants -----------------------//
 
@@ -34,7 +35,7 @@ export function stacksCommand(): void
 
 function getAvailableStacks(): string[]
 {
-  const repoRoot = getRepoRoot();
+  const repoRoot = findRepoRoot(import.meta.url, [STACKS_DIR]);
   const stacksRoot = join(repoRoot, STACKS_DIR);
 
   const languages = readDirectoryNames(stacksRoot);
@@ -78,7 +79,3 @@ function readDirectoryNames(directoryPath: string): string[]
   return directories;
 }
 
-function getRepoRoot(): string
-{
-  return resolve(__dirname, "../..");
-}

@@ -5,6 +5,14 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 а проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.9] - 2026-02-20
+
+### Исправлено
+- Исправлено динамическое определение корня репозитория в собранном CLI
+
+### Docs / Build
+- Обновлён version badge в README до `0.0.9`
+
 ## [0.0.8] - 2026-02-19
 
 ### Изменено

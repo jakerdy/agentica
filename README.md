@@ -20,9 +20,20 @@
 
 ## Quick Start
 
+Один раз в саом начале нужно установить Agentica:
+
 ```bash
-# Запускаем без установки
-bunx @jakerdy/agentica init typescript/cli MyProject
+# Установка глобально
+bun install -g @jakerdy/agentica
+```
+Затем, можно начинать пользоваться CLI для инициализации проекта:
+```bash
+# Обновляем до последней версии
+bun update -g @jakerdy/agentica
+
+# Создаём новый проект с помощью шаблона CLI для TypeScript
+# в под-директории MyProject
+agentica init typescript/cli MyProject
 
 # Открываем в VSCode
 cd MyProject && code .

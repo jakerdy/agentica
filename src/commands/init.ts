@@ -20,7 +20,7 @@ const EXIT_CODE_FAILURE = 1;
 const REQUIRED_SUBDIRS = [
   "prompts",
   "templates",
-  "architecture",
+  "research",
   "changes",
   "features",
   "release",
@@ -190,7 +190,7 @@ class InitProcessor
 
     if (this.options.name)
     {
-      console.log(chalk.white(`  1. cd ${this.options.name}`));
+      console.log(chalk.white(`  1. cd "${this.options.name}"`));
     }
 
     console.log(chalk.white("  1. Открой проект в VSCode: code ."));

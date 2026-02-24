@@ -33,7 +33,7 @@ $ARGUMENTS
 ### Группы артефактов
 1. **[Context]:** `product.md`, `structure.md`, `tech.md`, `status.md`. (Обязательны для любого активного скоупа).
 2. **[Config]:** Директории `prompts/`, `templates/`. (Только в корне проекта/репозитория).
-3. **[Specs]:** Директории `architecture/`, `changes/`, `features/`, `release/`. (Только там, где лежит код/пакет).
+3. **[Specs]:** Директории `research/`, `changes/`, `features/`, `release/`. (Только там, где лежит код/пакет).
 
 ### Матрица размещения
 
@@ -111,7 +111,7 @@ $ARGUMENTS
 
 Перед выдачей ответа проверь:
 1. Все файлы из групп **[Context]**, **[Config]**, **[Specs]** существуют на своих местах согласно матрице размещения.
-2. В корне Monorepo **нет** папок `architecture`, `changes`, `features`, `release`.
+2. В корне Monorepo **нет** папок `research`, `changes`, `features`, `release`.
 3. В `status.md` записан актуальный статус.
 4. Файлы `product/structure/tech` не противоречат друг другу.
 

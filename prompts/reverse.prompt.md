@@ -29,7 +29,7 @@ $ARGUMENTS
 
 Останови выполнение и не вноси изменения, если:
 1. Запрос требует **изменения кода** или рефакторинга (остановись и предложи пользователю воспользоваться агентами: `refactor` или `change`).
-2. Запрос описывает **новую систему**, которой ещё нет (остановись и предложи пользователю воспользоваться агентом: `architect`).
+2. Запрос описывает **новую систему**, которой ещё нет (остановись и предложи пользователю воспользоваться агентом: `rnd`).
 3. Код отсутствует или директория пуста (нечего анализировать).
 4. Пользователь просит написать новую фичу на основе анализа (сперва завершить reverse, затем использовать `create`).
 5. Пользователь просит дать качественную оценку ("хорошо/плохо") — это не задача reverse.
@@ -38,19 +38,19 @@ $ARGUMENTS
 
 ## Топология и размещение файлов
 
-Результат реверс-инжиниринга сохраняется как архитектурная спецификация в `.agentica/architecture/`:
-- **Single-project:** `./.agentica/architecture/`
-- **Monorepo (package):** `./packages/<name>/.agentica/architecture/`
+Результат реверс-инжиниринга сохраняется как архитектурная спецификация в `.agentica/research/`:
+- **Single-project:** `./.agentica/research/`
+- **Monorepo (package):** `./packages/<name>/.agentica/research/`
 
-**Формат имени файла:** `AR-XXXX - <Название системы> (As-Is).md`
+**Формат имени файла:** `RnD-XXXX - <Название системы> (As-Is).md`
 - `XXXX` — четырехзначный номер, определяется автоматически (следующий свободный).
 - `<Название системы>` — краткое описание анализируемой области.
 - Суффикс `(As-Is)` — обязателен, подчеркивает, что это описание существующего состояния.
 
 Примеры:
-- `AR-0005 - Обзор проекта CLI Tool (As-Is).md`
-- `AR-0018 - Модуль обработки событий (As-Is).md`
-- `AR-0027 - Механизм кэширования (As-Is).md`
+- `RnD-0005 - Обзор проекта CLI Tool (As-Is).md`
+- `RnD-0018 - Модуль обработки событий (As-Is).md`
+- `RnD-0027 - Механизм кэширования (As-Is).md`
 
 ## Фаза 1: Валидация контекста и определение скоупа
 
@@ -68,7 +68,7 @@ $ARGUMENTS
 1. `product.md` — продуктовый контекст.
 2. `structure.md` — заявленная структура проекта.
 3. `tech.md` — технический стек и стандарты.
-4. Список существующих файлов в `architecture/` (для определения номера AR-XXXX и избежания дублирования).
+4. Список существующих файлов в `research/` (для определения номера RnD-XXXX и избежания дублирования).
 
 ### Шаг 1.3: Определение режима работы
 
@@ -109,7 +109,7 @@ $ARGUMENTS
 
 ### Шаг 2.1: Сканирование по режимам
 
-**Важно:** Все примеры "Сохрани в memory" ниже показывают только содержимое поля `fact`. Полный формат memory (с правильным `subject` префиксом, `category`, `citations`, `reason`) описан в разделе 2.3. Всегда используй структурированный subject вида `@<scope>/AR-XXXX--<тема>` согласно правилам из 2.3.
+**Важно:** Все примеры "Сохрани в memory" ниже показывают только содержимое поля `fact`. Полный формат memory (с правильным `subject` префиксом, `category`, `citations`, `reason`) описан в разделе 2.3. Всегда используй структурированный subject вида `@<scope>/RnD-XXXX--<тема>` согласно правилам из 2.3.
 
 #### Режим A (Overview): Обзорное сканирование
 1. **Entry points:** Найди точки входа (main.ts, index.ts, app.py, __init__.py).
@@ -173,16 +173,16 @@ Memory — это **ключевой инструмент** для реверс-
 
 2. **Subject (с префиксом для группировки):**
    Используй структурированный префикс для удобства поиска:
-   - **Формат:** `@<scope>/AR-XXXX--<тема>`
+   - **Формат:** `@<scope>/RnD-XXXX--<тема>`
    - **`<scope>`:** Идентификатор пакета или "root" для single-project
-   - **`AR-XXXX`:** Номер создаваемого отчёта
+   - **`RnD-XXXX`:** Номер создаваемого отчёта
    - **`<тема>`:** Категория факта (entities, patterns, dependencies, data-flow, mechanisms, libraries)
 
    **Примеры subject:**
-   - `@root/AR-0012--entities`
-   - `@api-gateway/AR-0045--patterns`
-   - `@auth-service/AR-0023--dependencies`
-   - `@root/AR-0012--mechanisms`
+   - `@root/RnD-0012--entities`
+   - `@api-gateway/RnD-0045--patterns`
+   - `@auth-service/RnD-0023--dependencies`
+   - `@root/RnD-0012--mechanisms`
 
 3. **Fact:** Короткое утверждение (до 200 символов). Должно быть самодостаточным и понятным без дополнительного контекста.
 
@@ -195,7 +195,7 @@ Memory — это **ключевой инструмент** для реверс-
 #### Режим A (Overview):
 ```
 category: general
-subject: @root/AR-0012--patterns
+subject: @root/RnD-0012--patterns
 fact: Factory pattern used in src/factories/ for creating service instances
 citations: src/factories/service-factory.ts:12, src/factories/user-factory.ts:8
 reason: Will be included in section "Architectural patterns" to show design approach
@@ -203,7 +203,7 @@ reason: Will be included in section "Architectural patterns" to show design appr
 
 ```
 category: general
-subject: @root/AR-0012--dependencies
+subject: @root/RnD-0012--dependencies
 fact: Core module depends on database, utils, and config modules
 citations: src/core/index.ts:1-5
 reason: Will be used in dependency graph section to show module relationships
@@ -212,7 +212,7 @@ reason: Will be used in dependency graph section to show module relationships
 #### Режим B (Deep-Dive):
 ```
 category: file_specific
-subject: @auth-service/AR-0023--entities
+subject: @auth-service/RnD-0023--entities
 fact: Class TokenManager handles JWT generation, validation, and refresh logic
 citations: src/auth/token-manager.ts:15
 reason: Core entity for deep-dive report, will be detailed in entities section
@@ -220,7 +220,7 @@ reason: Core entity for deep-dive report, will be detailed in entities section
 
 ```
 category: file_specific
-subject: @auth-service/AR-0023--data-flow
+subject: @auth-service/RnD-0023--data-flow
 fact: Auth flow: middleware extracts token → TokenManager validates → UserService fetches user
 citations: src/auth/middleware.ts:23, src/auth/token-manager.ts:45, src/services/user.ts:67
 reason: Will be used to construct data flow diagram in section 5
@@ -229,7 +229,7 @@ reason: Will be used to construct data flow diagram in section 5
 #### Режим C (Mechanism):
 ```
 category: general
-subject: @root/AR-0027--mechanisms
+subject: @root/RnD-0027--mechanisms
 fact: Caching mechanism uses Redis adapter with TTL-based expiration
 citations: src/cache/redis-adapter.ts:34
 reason: Core component of caching mechanism, will be in "Components" section
@@ -237,7 +237,7 @@ reason: Core component of caching mechanism, will be in "Components" section
 
 ```
 category: general
-subject: @root/AR-0027--mechanisms
+subject: @root/RnD-0027--mechanisms
 fact: Cache invalidation triggered by domain events from EventBus
 citations: src/cache/invalidator.ts:12, src/events/bus.ts:89
 reason: Shows mechanism workflow step, will be in "Algorithm" section
@@ -252,7 +252,7 @@ reason: Shows mechanism workflow step, will be in "Algorithm" section
 
 ## Фаза 3: Анализ паттернов и механизмов
 
-**Важно:** Все facts сохраняй с правильным subject префиксом согласно разделу 2.3 (`@<scope>/AR-XXXX--patterns`, `@<scope>/AR-XXXX--mechanisms`, и т.д.).
+**Важно:** Все facts сохраняй с правильным subject префиксом согласно разделу 2.3 (`@<scope>/RnD-XXXX--patterns`, `@<scope>/RnD-XXXX--mechanisms`, и т.д.).
 
 ### Шаг 3.1: Выявление паттернов проектирования
 
@@ -315,8 +315,8 @@ reason: Shows mechanism workflow step, will be in "Algorithm" section
 
 1. **Memory доступна автоматически:** Все сохранённые факты уже в твоём контексте, явный вызов инструмента не нужен.
 
-2. **Фильтрация по префиксу:** Используй префикс `@<scope>/AR-XXXX--` для группировки фактов по текущему отчёту.
-   - Например, если создаёшь `AR-0012`, ищи все facts с subject начинающимся на `@root/AR-0012--`
+2. **Фильтрация по префиксу:** Используй префикс `@<scope>/RnD-XXXX--` для группировки фактов по текущему отчёту.
+   - Например, если создаёшь `RnD-0012`, ищи все facts с subject начинающимся на `@root/RnD-0012--`
    - Это отфильтрует факты только по текущему анализу, исключив старые
 
 3. **Группировка по темам:** Факты уже сгруппированы по суффиксу в subject:
@@ -336,20 +336,20 @@ reason: Shows mechanism workflow step, will be in "Algorithm" section
 
 **Пример работы с memories:**
 
-Если создаёшь отчёт `AR-0023 - Модуль авторизации (As-Is)`, ищи все facts где:
-- `subject` начинается с `@auth-service/AR-0023--`
+Если создаёшь отчёт `RnD-0023 - Модуль авторизации (As-Is)`, ищи все facts где:
+- `subject` начинается с `@auth-service/RnD-0023--`
 
 Группируй их:
-- `@auth-service/AR-0023--entities` → 5 фактов → раздел "Сущности модуля"
-- `@auth-service/AR-0023--patterns` → 2 факта → раздел "Паттерны"
-- `@auth-service/AR-0023--data-flow` → 8 фактов → раздел "Потоки данных"
+- `@auth-service/RnD-0023--entities` → 5 фактов → раздел "Сущности модуля"
+- `@auth-service/RnD-0023--patterns` → 2 факта → раздел "Паттерны"
+- `@auth-service/RnD-0023--data-flow` → 8 фактов → раздел "Потоки данных"
 
 Каждый факт содержит citations (файл:строка), используй их в отчёте для ссылок на код.
 
 ### 6.1. Структура отчёта: Режим A (Overview)
 
 ````markdown
-# AR-XXXX - Обзор проекта <Название> (As-Is)
+# RnD-XXXX - Обзор проекта <Название> (As-Is)
 
 > **Тип документа:** Реверс-инжиниринг (Overview)  
 > **Дата анализа:** YYYY-MM-DD  
@@ -452,7 +452,7 @@ reason: Shows mechanism workflow step, will be in "Algorithm" section
 ### 6.2. Структура отчёта: Режим B (Deep-Dive)
 
 ````markdown
-# AR-XXXX - Модуль <Название> (As-Is)
+# RnD-XXXX - Модуль <Название> (As-Is)
 
 > **Тип документа:** Реверс-инжиниринг (Deep-Dive)  
 > **Дата анализа:** YYYY-MM-DD  
@@ -583,7 +583,7 @@ graph LR
 ### 6.3. Структура отчёта: Режим C (Mechanism)
 
 ````markdown
-# AR-XXXX - Механизм <Название> (As-Is)
+# RnD-XXXX - Механизм <Название> (As-Is)
 
 > **Тип документа:** Реверс-инжиниринг (Mechanism)  
 > **Дата анализа:** YYYY-MM-DD  
@@ -705,7 +705,7 @@ graph LR
 ## Фаза 6: Финальная проверка
 
 Перед сохранением отчёта проверь:
-1. **Номер AR-XXXX уникален** и файл содержит суффикс `(As-Is)`.
+1. **Номер RnD-XXXX уникален** и файл содержит суффикс `(As-Is)`.
 2. **Все утверждения подтверждены фактами** из кода (файл:строка указаны).
 3. **Нет качественных оценок** ("плохо", "хорошо", "надо исправить") — только описание.
 4. **Структура соответствует режиму** (Overview/Deep-Dive/Mechanism).
@@ -717,7 +717,7 @@ graph LR
 ## Фаза 7: Отчёт пользователю
 
 Выдай короткое резюме:
-1. **Созданный файл:** `AR-XXXX - <Название> (As-Is).md`.
+1. **Созданный файл:** `RnD-XXXX - <Название> (As-Is).md`.
 2. **Режим анализа:** [Overview / Deep-Dive / Mechanism].
 3. **Скоуп:** [Путь к анализируемой области].
 4. **Ключевые находки:**

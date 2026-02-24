@@ -1,6 +1,6 @@
 # Agentica
 
-[![Version](https://img.shields.io/badge/version-0.0.10-blue)](https://github.com/jakerdy/agentica/releases/tag/v0.0.10)
+[![Version](https://img.shields.io/badge/version-0.0.11-blue)](https://github.com/jakerdy/agentica/releases/tag/v0.0.11)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Bun Build](https://img.shields.io/badge/build-bun-orange)](https://bun.sh)
 

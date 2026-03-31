@@ -2,6 +2,7 @@
 
 import { Command } from "commander";
 import { initCommand } from "./commands/init";
+import { safetyCheckCommand } from "./commands/safety_check";
 import { stacksCommand } from "./commands/stacks";
 import type { IInitOptions } from "./types";
 
@@ -55,5 +56,23 @@ program
   .command("stacks")
   .description("Показать доступные шаблоны проектов")
   .action(stacksCommand);
+
+program
+  .command("safety-check")
+  .description("Проверить staged-изменения на артефакты, секреты и прочие риски")
+  .option("--json", "Вывести результат в JSON")
+  .option("--allow-empty", "Не считать пустой stage ошибкой")
+  .option("--max-file-size-mb <size>", "Порог большого файла в MB", "5")
+  .action((commandOptions: { json?: boolean; allowEmpty?: boolean; maxFileSizeMb?: string }) =>
+  {
+    try
+    {
+      safetyCheckCommand(commandOptions);
+    } catch (error)
+    {
+      console.error("Ошибка:", error);
+      process.exit(1);
+    }
+  });
 
 program.parse();

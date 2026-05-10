@@ -4,7 +4,10 @@ export interface IInitOptions
 {
   stack: string;
   name?: string;
+  agents_sections?: TAgentsSectionId[];
 }
+
+export type TAgentsSectionId = "lang" | "anti-spaghetti" | "use-agentica";
 
 export interface IStackDefinition
 {

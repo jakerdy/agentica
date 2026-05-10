@@ -165,7 +165,12 @@ class InitProcessor
 
   private composeAgentsFile(): void
   {
-    composeAgentsMd(this.repoRoot, this.targetDir, this.stack.lang);
+    composeAgentsMd(
+      this.repoRoot,
+      this.targetDir,
+      this.stack.lang,
+      this.options.agents_sections,
+    );
     console.log(chalk.green(`✓ Сформирован AGENTS.md`));
   }
 
